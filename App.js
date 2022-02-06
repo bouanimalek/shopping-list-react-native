@@ -8,9 +8,10 @@ import {
   ScrollView,
   FlatList,
 } from "react-native";
+import Products from "./components/Products";
 
 export default function App() {
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState();
 
   const [myProducts, setMyProducts] = useState([]);
 
@@ -41,9 +42,7 @@ export default function App() {
 
       <FlatList
         data={myProducts}
-        renderItem={({ item }) => (
-          <Text style={styles.element}>{item.name}</Text>
-        )}
+        renderItem={({ item }) => <Products name={item.name} />}
       />
     </View>
   );
@@ -65,14 +64,5 @@ const styles = StyleSheet.create({
     paddingLeft: 9,
     fontSize: 18,
     flexGrow: 1,
-  },
-  items: {
-    marginTop: 10,
-  },
-  element: {
-    backgroundColor: "#ffb6c1",
-    padding: 20,
-    fontSize: 18,
-    marginVertical: 5,
   },
 });
