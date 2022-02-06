@@ -6,10 +6,11 @@ import {
   TextInput,
   Button,
   ScrollView,
+  FlatList,
 } from "react-native";
 
 export default function App() {
-  const [product, setProduct] = useState("");
+  const [product, setProduct] = useState({});
 
   const [myProducts, setMyProducts] = useState([]);
 
@@ -18,7 +19,11 @@ export default function App() {
   };
 
   const submitHandler = () => {
-    setMyProducts((currentMyProducts) => [...currentMyProducts, product]);
+    const idString = Date.now().toString();
+    setMyProducts((currentMyProducts) => [
+      { key: idString, name: product },
+      ...currentMyProducts,
+    ]);
     setProduct("");
   };
 
@@ -33,17 +38,13 @@ export default function App() {
         />
         <Button title="Valider" onPress={submitHandler} />
       </View>
-      <ScrollView>
-        <View style={styles.items}>
-          {myProducts.map((product, index) => {
-            return (
-              <Text key={index} style={styles.element}>
-                {product}
-              </Text>
-            );
-          })}
-        </View>
-      </ScrollView>
+
+      <FlatList
+        data={myProducts}
+        renderItem={({ item }) => (
+          <Text style={styles.element}>{item.name}</Text>
+        )}
+      />
     </View>
   );
 }
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     flexDirection: "row",
-    marginBottom: 9,
+    marginBottom: 15,
   },
   textInput: {
     borderColor: "grey",
