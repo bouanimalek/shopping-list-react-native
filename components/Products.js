@@ -10,7 +10,8 @@ const Products = ({ name }) => {
           backgroundColor: pressed ? "blue" : "red",
         },
       ]}
-      onPress={() => console.log("cliqué")}
+      onLongPress={() => console.log("cliqué")}
+      delayLongPress={5000}
     >
       <View style={styles.items}>
         <Text style={styles.element}>{name}</Text>
