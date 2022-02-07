@@ -7,6 +7,7 @@ import {
   Button,
   ScrollView,
   FlatList,
+  Alert,
 } from "react-native";
 import AddProduct from "./components/AddProduct";
 import Products from "./components/Products";
@@ -22,7 +23,28 @@ export default function App() {
         ...currentMyProducts,
       ]);
     } else {
-      alert("refusé");
+      Alert.alert(
+        "désole",
+        "nombre de caracteres doit etre > 3",
+        [
+          {
+            text: "compris",
+            onPress: () => console.warn("refuse"),
+          },
+          {
+            text: "d'accord",
+            onPress: () => console.warn("refuse"),
+          },
+          {
+            text: "yes",
+            onPress: () => console.warn("refuse"),
+          },
+        ],
+        {
+          cancelable: true,
+          onDismiss: () => console.warn("dismissed"),
+        }
+      );
     }
   };
 

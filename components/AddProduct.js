@@ -2,7 +2,7 @@ import { StyleSheet, View, TextInput, Button } from "react-native";
 import React, { useState } from "react";
 
 const AddProduct = ({ submitHandler }) => {
-  const [product, setProduct] = useState();
+  const [product, setProduct] = useState("");
 
   const inputHandler = (val) => {
     setProduct(val);
