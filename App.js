@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -14,6 +14,13 @@ import Products from "./components/Products";
 
 export default function App() {
   const [myProducts, setMyProducts] = useState([]);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (count > 3) {
+      setMyProducts([]);
+    }
+  }, [count]);
 
   const submitHandler = (product) => {
     if (product.length > 1) {
@@ -29,15 +36,7 @@ export default function App() {
         [
           {
             text: "compris",
-            onPress: () => console.warn("refuse"),
-          },
-          {
-            text: "d'accord",
-            onPress: () => console.warn("refuse"),
-          },
-          {
-            text: "yes",
-            onPress: () => console.warn("refuse"),
+            onPress: () => setCount(count + 1),
           },
         ],
         {
