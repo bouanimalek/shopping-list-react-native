@@ -15,11 +15,15 @@ export default function App() {
   const [myProducts, setMyProducts] = useState([]);
 
   const submitHandler = (product) => {
-    const idString = Date.now().toString();
-    setMyProducts((currentMyProducts) => [
-      { key: idString, name: product },
-      ...currentMyProducts,
-    ]);
+    if (product.length > 1) {
+      const idString = Date.now().toString();
+      setMyProducts((currentMyProducts) => [
+        { key: idString, name: product },
+        ...currentMyProducts,
+      ]);
+    } else {
+      alert("refusé");
+    }
   };
 
   const deleteProduct = (key) => {
