@@ -16,35 +16,12 @@ export default function App() {
   const [myProducts, setMyProducts] = useState([]);
   const [count, setCount] = useState(0);
 
-  useEffect(() => {
-    if (count > 3) {
-      setMyProducts([]);
-    }
-  }, [count]);
-
   const submitHandler = (product) => {
-    if (product.length > 1) {
-      const idString = Date.now().toString();
-      setMyProducts((currentMyProducts) => [
-        { key: idString, name: product },
-        ...currentMyProducts,
-      ]);
-    } else {
-      Alert.alert(
-        "désole",
-        "nombre de caracteres doit etre > 3",
-        [
-          {
-            text: "compris",
-            onPress: () => setCount(count + 1),
-          },
-        ],
-        {
-          cancelable: true,
-          onDismiss: () => console.warn("dismissed"),
-        }
-      );
-    }
+    const idString = Date.now().toString();
+    setMyProducts((currentMyProducts) => [
+      { key: idString, name: product },
+      ...currentMyProducts,
+    ]);
   };
 
   const deleteProduct = (key) => {
