@@ -1,11 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
 
 const Products = ({ name }) => {
   return (
-    <View style={styles.items}>
-      <Text style={styles.element}>{name}</Text>
-    </View>
+    <TouchableWithoutFeedback onPress={() => console.log("cliqué")}>
+      <View style={styles.items}>
+        <Text style={styles.element}>{name}</Text>
+      </View>
+    </TouchableWithoutFeedback>
   );
 };
 
