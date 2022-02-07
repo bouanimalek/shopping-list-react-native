@@ -1,13 +1,13 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableWithoutFeedback } from "react-native";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 const Products = ({ name }) => {
   return (
-    <TouchableWithoutFeedback onPress={() => console.log("cliqué")}>
+    <TouchableOpacity activeOpacity={0.2} onPress={() => console.log("cliqué")}>
       <View style={styles.items}>
         <Text style={styles.element}>{name}</Text>
       </View>
-    </TouchableWithoutFeedback>
+    </TouchableOpacity>
   );
 };
 
