@@ -1,13 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, TouchableHighlight } from "react-native";
 
 const Products = ({ name }) => {
   return (
-    <TouchableOpacity activeOpacity={0.2} onPress={() => console.log("cliqué")}>
+    <TouchableHighlight
+      underlayColor="yellow"
+      activeOpacity={0.2}
+      onPress={() => console.log("cliqué")}
+    >
       <View style={styles.items}>
         <Text style={styles.element}>{name}</Text>
       </View>
-    </TouchableOpacity>
+    </TouchableHighlight>
   );
 };
 
