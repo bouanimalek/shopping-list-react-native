@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View, Pressable } from "react-native";
 import { backgroundColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
 
-const Products = ({ name }) => {
+const Products = ({ name, deleteProduct, idString }) => {
   return (
     <Pressable
       // style={({ pressed }) => [
@@ -10,8 +10,7 @@ const Products = ({ name }) => {
       //     backgroundColor: pressed ? "blue" : "red",
       //   },
       // ]}
-      onPress={() => console.log("cliqué")}
-      android_ripple={{ color: "purple" }}
+      onPress={() => deleteProduct(idString)}
     >
       <View style={styles.items}>
         <Text style={styles.element}>{name}</Text>
