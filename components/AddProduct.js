@@ -8,6 +8,11 @@ const AddProduct = ({ submitHandler }) => {
     setProduct(val);
   };
 
+  const handleClick = () => {
+    submitHandler(product);
+    setProduct("");
+  };
+
   return (
     <View style={styles.inputContainer}>
       <TextInput
@@ -16,10 +21,7 @@ const AddProduct = ({ submitHandler }) => {
         onChangeText={inputHandler}
         value={product}
       />
-      <Button
-        title="Valider"
-        onPress={() => submitHandler(product, setProduct)}
-      />
+      <Button title="Valider" onPress={handleClick} />
     </View>
   );
 };

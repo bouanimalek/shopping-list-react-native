@@ -14,13 +14,12 @@ import Products from "./components/Products";
 export default function App() {
   const [myProducts, setMyProducts] = useState([]);
 
-  const submitHandler = (product, setProduct) => {
+  const submitHandler = (product) => {
     const idString = Date.now().toString();
     setMyProducts((currentMyProducts) => [
       { key: idString, name: product },
       ...currentMyProducts,
     ]);
-    setProduct("");
   };
 
   return (
