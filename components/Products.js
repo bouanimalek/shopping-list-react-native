@@ -5,13 +5,13 @@ import { backgroundColor } from "react-native/Libraries/Components/View/ReactNat
 const Products = ({ name }) => {
   return (
     <Pressable
-      style={({ pressed }) => [
-        {
-          backgroundColor: pressed ? "blue" : "red",
-        },
-      ]}
-      onLongPress={() => console.log("cliqué")}
-      delayLongPress={5000}
+      // style={({ pressed }) => [
+      //   {
+      //     backgroundColor: pressed ? "blue" : "red",
+      //   },
+      // ]}
+      onPress={() => console.log("cliqué")}
+      android_ripple={{ color: "purple" }}
     >
       <View style={styles.items}>
         <Text style={styles.element}>{name}</Text>
