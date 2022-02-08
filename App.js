@@ -8,20 +8,25 @@ import {
   ScrollView,
   FlatList,
   Alert,
+  Modal,
 } from "react-native";
 import AddProduct from "./components/AddProduct";
 import Products from "./components/Products";
 
 export default function App() {
   const [myProducts, setMyProducts] = useState([]);
-  const [count, setCount] = useState(0);
+  const [showModal, setShowModal] = useState(false);
 
   const submitHandler = (product) => {
-    const idString = Date.now().toString();
-    setMyProducts((currentMyProducts) => [
-      { key: idString, name: product },
-      ...currentMyProducts,
-    ]);
+    if (product.length > 1) {
+      const idString = Date.now().toString();
+      setMyProducts((currentMyProducts) => [
+        { key: idString, name: product },
+        ...currentMyProducts,
+      ]);
+    } else {
+      setShowModal(true);
+    }
   };
 
   const deleteProduct = (key) => {
@@ -32,6 +37,10 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <Modal visible={showModal} onRequestClose={() => setShowModal(false)}>
+        <Text>hello world</Text>
+      </Modal>
+
       <AddProduct submitHandler={submitHandler} />
 
       <FlatList
