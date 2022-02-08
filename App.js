@@ -9,6 +9,7 @@ import {
   FlatList,
   Alert,
   Modal,
+  Pressable,
 } from "react-native";
 import AddProduct from "./components/AddProduct";
 import Products from "./components/Products";
@@ -47,6 +48,14 @@ export default function App() {
               <Text style={styles.modalBodyText}>
                 Merci d'indiquer plus d'un seul caractère
               </Text>
+            </View>
+            <View style={styles.modalFooter}>
+              <Pressable
+                style={styles.pressableBtnModal}
+                onPress={() => setShowModal(false)}
+              >
+                <Text style={styles.modalBtn}>Compris!</Text>
+              </Pressable>
             </View>
           </View>
         </View>
@@ -110,5 +119,19 @@ const styles = StyleSheet.create({
   },
   modalBodyText: {
     fontSize: 17,
+  },
+  modalFooter: {
+    width: "100%",
+  },
+  pressableBtnModal: {
+    backgroundColor: "#20b2aa",
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+  },
+  modalBtn: {
+    fontSize: 17,
+    color: "#fff",
+    textAlign: "center",
+    padding: 16,
   },
 });
