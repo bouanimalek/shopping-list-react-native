@@ -41,7 +41,12 @@ export default function App() {
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <View style={styles.modalHeader}>
-              <Text>hello world</Text>
+              <Text style={styles.modalHeaderText}>OUPS!</Text>
+            </View>
+            <View style={styles.modalBody}>
+              <Text style={styles.modalBodyText}>
+                Merci d'indiquer plus d'un seul caractère
+              </Text>
             </View>
           </View>
         </View>
@@ -90,5 +95,20 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 15,
     borderBottomWidth: 1,
     borderBottomColor: "#d3d3d3",
+  },
+  modalHeaderText: {
+    color: "grey",
+    fontSize: 17,
+  },
+  modalBody: {
+    flex: 1,
+    width: "100%",
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  modalBodyText: {
+    fontSize: 17,
   },
 });
