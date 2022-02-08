@@ -38,7 +38,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Modal visible={showModal} onRequestClose={() => setShowModal(false)}>
-        <Text>hello world</Text>
+        <View style={styles.modalContainer}>
+          <View style={styles.modalContent}>
+            <View style={styles.modalHeader}>
+              <Text>hello world</Text>
+            </View>
+          </View>
+        </View>
       </Modal>
 
       <AddProduct submitHandler={submitHandler} />
@@ -61,5 +67,28 @@ const styles = StyleSheet.create({
   container: {
     padding: 40,
     paddingTop: 60,
+  },
+  modalContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.2)",
+  },
+  modalContent: {
+    backgroundColor: "#fff",
+    width: "90%",
+    height: 250,
+    borderRadius: 15,
+    alignItems: "center",
+  },
+  modalHeader: {
+    // backgroundColor: "grey",
+    width: "100%",
+    padding: 16,
+    alignItems: "center",
+    borderTopLeftRadius: 15,
+    borderTopRightRadius: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#d3d3d3",
   },
 });
