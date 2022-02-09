@@ -20,6 +20,10 @@ const AddProduct = ({ submitHandler }) => {
         placeholder="Nouveau produit"
         onChangeText={inputHandler}
         value={product}
+        multiline={false}
+        maxLength={9}
+        secureTextEntry={false}
+        editable={false}
       />
       <Button title="Valider" onPress={handleClick} />
     </View>
@@ -30,7 +34,6 @@ export default AddProduct;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    flexDirection: "row",
     marginBottom: 15,
   },
   textInput: {
@@ -40,5 +43,6 @@ const styles = StyleSheet.create({
     paddingLeft: 9,
     fontSize: 18,
     flexGrow: 1,
+    marginBottom: 9,
   },
 });
