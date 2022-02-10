@@ -1,7 +1,7 @@
 import { StyleSheet, View, TextInput, Button, Modal } from "react-native";
 import React, { useState } from "react";
 
-const AddProduct = ({ submitHandler, displayModal }) => {
+const AddProduct = ({ submitHandler, displayModal, cancelNewProduct }) => {
   const [product, setProduct] = useState("");
 
   const inputHandler = (val) => {
@@ -26,6 +26,7 @@ const AddProduct = ({ submitHandler, displayModal }) => {
           secureTextEntry={false}
         />
         <Button title="Valider" onPress={handleClick} />
+        <Button title="Annuler" onPress={cancelNewProduct} color="red" />
       </View>
     </Modal>
   );

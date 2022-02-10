@@ -39,6 +39,10 @@ export default function App() {
     });
   };
 
+  const cancelNewProduct = () => {
+    setDisplayModal(false);
+  };
+
   return (
     <DissmissKeyboard>
       <View style={styles.container}>
@@ -72,7 +76,11 @@ export default function App() {
         </Modal>
 
         <Button title="Nouveau produit" onPress={() => setDisplayModal(true)} />
-        <AddProduct submitHandler={submitHandler} displayModal={displayModal} />
+        <AddProduct
+          submitHandler={submitHandler}
+          displayModal={displayModal}
+          cancelNewProduct={cancelNewProduct}
+        />
 
         <FlatList
           data={myProducts}
