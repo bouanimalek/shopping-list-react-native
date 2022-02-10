@@ -1,7 +1,7 @@
-import { StyleSheet, View, TextInput, Button } from "react-native";
+import { StyleSheet, View, TextInput, Button, Modal } from "react-native";
 import React, { useState } from "react";
 
-const AddProduct = ({ submitHandler }) => {
+const AddProduct = ({ submitHandler, displayModal }) => {
   const [product, setProduct] = useState("");
 
   const inputHandler = (val) => {
@@ -14,18 +14,20 @@ const AddProduct = ({ submitHandler }) => {
   };
 
   return (
-    <View style={styles.inputContainer}>
-      <TextInput
-        style={styles.textInput}
-        placeholder="Nouveau produit"
-        onChangeText={inputHandler}
-        value={product}
-        multiline={false}
-        maxLength={9}
-        secureTextEntry={false}
-      />
-      <Button title="Valider" onPress={handleClick} />
-    </View>
+    <Modal visible={displayModal} animationType="slide">
+      <View style={styles.inputContainer}>
+        <TextInput
+          style={styles.textInput}
+          placeholder="Nouveau produit"
+          onChangeText={inputHandler}
+          value={product}
+          multiline={false}
+          maxLength={9}
+          secureTextEntry={false}
+        />
+        <Button title="Valider" onPress={handleClick} />
+      </View>
+    </Modal>
   );
 };
 
@@ -33,7 +35,10 @@ export default AddProduct;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    marginBottom: 15,
+    backgroundColor: "yellow",
+    flex: 1,
+    justifyContent: "center",
+    padding: 24,
   },
   textInput: {
     borderColor: "grey",
@@ -41,7 +46,6 @@ const styles = StyleSheet.create({
     padding: 5,
     paddingLeft: 9,
     fontSize: 18,
-    flexGrow: 1,
     marginBottom: 9,
   },
 });

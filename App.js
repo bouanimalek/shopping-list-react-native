@@ -18,6 +18,7 @@ import Products from "./components/Products";
 export default function App() {
   const [myProducts, setMyProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
+  const [displayModal, setDisplayModal] = useState(false);
 
   const submitHandler = (product) => {
     if (product.length > 1) {
@@ -69,7 +70,8 @@ export default function App() {
           </View>
         </Modal>
 
-        <AddProduct submitHandler={submitHandler} />
+        <Button title="Nouveau produit" onPress={() => setDisplayModal(true)} />
+        <AddProduct submitHandler={submitHandler} displayModal={displayModal} />
 
         <FlatList
           data={myProducts}
