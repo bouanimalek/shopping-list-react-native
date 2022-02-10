@@ -12,6 +12,7 @@ import {
   Pressable,
 } from "react-native";
 import AddProduct from "./components/AddProduct";
+import DissmissKeyboard from "./components/DissmissKeyboard";
 import Products from "./components/Products";
 
 export default function App() {
@@ -37,54 +38,57 @@ export default function App() {
   };
 
   return (
-    <View style={styles.container}>
-      <Modal
-        visible={showModal}
-        onRequestClose={() => setShowModal(false)}
-        animationType="slide"
-        hardwareAccelerated
-        transparent
-      >
-        <View style={styles.modalContainer}>
-          <View style={styles.modalContent}>
-            <View style={styles.modalHeader}>
-              <Text style={styles.modalHeaderText}>OUPS!</Text>
-            </View>
-            <View style={styles.modalBody}>
-              <Text style={styles.modalBodyText}>
-                Merci d'indiquer plus d'un seul caractère
-              </Text>
-            </View>
-            <View style={styles.modalFooter}>
-              <Pressable
-                style={styles.pressableBtnModal}
-                onPress={() => setShowModal(false)}
-              >
-                <Text style={styles.modalBtn}>Compris!</Text>
-              </Pressable>
+    <DissmissKeyboard>
+      <View style={styles.container}>
+        <Modal
+          visible={showModal}
+          onRequestClose={() => setShowModal(false)}
+          animationType="slide"
+          hardwareAccelerated
+          transparent
+        >
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContent}>
+              <View style={styles.modalHeader}>
+                <Text style={styles.modalHeaderText}>OUPS!</Text>
+              </View>
+              <View style={styles.modalBody}>
+                <Text style={styles.modalBodyText}>
+                  Merci d'indiquer plus d'un seul caractère
+                </Text>
+              </View>
+              <View style={styles.modalFooter}>
+                <Pressable
+                  style={styles.pressableBtnModal}
+                  onPress={() => setShowModal(false)}
+                >
+                  <Text style={styles.modalBtn}>Compris!</Text>
+                </Pressable>
+              </View>
             </View>
           </View>
-        </View>
-      </Modal>
+        </Modal>
 
-      <AddProduct submitHandler={submitHandler} />
+        <AddProduct submitHandler={submitHandler} />
 
-      <FlatList
-        data={myProducts}
-        renderItem={({ item }) => (
-          <Products
-            name={item.name}
-            idString={item.key}
-            deleteProduct={deleteProduct}
-          />
-        )}
-      />
-    </View>
+        <FlatList
+          data={myProducts}
+          renderItem={({ item }) => (
+            <Products
+              name={item.name}
+              idString={item.key}
+              deleteProduct={deleteProduct}
+            />
+          )}
+        />
+      </View>
+    </DissmissKeyboard>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 40,
     paddingTop: 60,
   },

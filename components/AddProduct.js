@@ -23,7 +23,6 @@ const AddProduct = ({ submitHandler }) => {
         multiline={false}
         maxLength={9}
         secureTextEntry={false}
-        editable={false}
       />
       <Button title="Valider" onPress={handleClick} />
     </View>
