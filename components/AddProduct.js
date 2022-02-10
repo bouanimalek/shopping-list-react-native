@@ -35,7 +35,6 @@ export default AddProduct;
 
 const styles = StyleSheet.create({
   inputContainer: {
-    backgroundColor: "yellow",
     flex: 1,
     justifyContent: "center",
     padding: 24,

@@ -21,6 +21,7 @@ export default function App() {
   const [displayModal, setDisplayModal] = useState(false);
 
   const submitHandler = (product) => {
+    setDisplayModal(false);
     if (product.length > 1) {
       const idString = Date.now().toString();
       setMyProducts((currentMyProducts) => [
