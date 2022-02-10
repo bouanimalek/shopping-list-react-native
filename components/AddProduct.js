@@ -25,8 +25,14 @@ const AddProduct = ({ submitHandler, displayModal, cancelNewProduct }) => {
           maxLength={9}
           secureTextEntry={false}
         />
-        <Button title="Valider" onPress={handleClick} />
-        <Button title="Annuler" onPress={cancelNewProduct} color="red" />
+        <View style={styles.btnContainer}>
+          <View style={styles.btnBlue}>
+            <Button title="Valider" onPress={handleClick} />
+          </View>
+          <View style={styles.btnTomato}>
+            <Button title="Annuler" onPress={cancelNewProduct} color="tomato" />
+          </View>
+        </View>
       </View>
     </Modal>
   );
@@ -47,5 +53,15 @@ const styles = StyleSheet.create({
     paddingLeft: 9,
     fontSize: 18,
     marginBottom: 9,
+  },
+  btnContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  btnBlue: {
+    width: "45%",
+  },
+  btnTomato: {
+    width: "45%",
   },
 });

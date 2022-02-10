@@ -10,6 +10,7 @@ import {
   Alert,
   Modal,
   Pressable,
+  Image,
 } from "react-native";
 import AddProduct from "./components/AddProduct";
 import DissmissKeyboard from "./components/DissmissKeyboard";
@@ -59,6 +60,12 @@ export default function App() {
                 <Text style={styles.modalHeaderText}>OUPS!</Text>
               </View>
               <View style={styles.modalBody}>
+                <Image
+                  source={{
+                    uri: "https://cdn.pixabay.com/photo/2012/04/26/18/36/negative-42774_960_720.png",
+                  }}
+                  style={styles.redCheck128}
+                />
                 <Text style={styles.modalBodyText}>
                   Merci d'indiquer plus d'un seul caractère
                 </Text>
@@ -112,7 +119,7 @@ const styles = StyleSheet.create({
   modalContent: {
     backgroundColor: "#fff",
     width: "90%",
-    height: 250,
+    height: 300,
     borderRadius: 15,
     alignItems: "center",
   },
@@ -154,5 +161,9 @@ const styles = StyleSheet.create({
     color: "#fff",
     textAlign: "center",
     padding: 16,
+  },
+  redCheck128: {
+    width: 100,
+    height: 100,
   },
 });
