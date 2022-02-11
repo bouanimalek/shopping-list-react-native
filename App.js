@@ -11,6 +11,7 @@ import {
   Modal,
   Pressable,
   Image,
+  ImageBackground,
 } from "react-native";
 import AddProduct from "./components/AddProduct";
 import DissmissKeyboard from "./components/DissmissKeyboard";
@@ -46,7 +47,12 @@ export default function App() {
 
   return (
     <DissmissKeyboard>
-      <View style={styles.container}>
+      <ImageBackground
+        style={styles.container}
+        source={{
+          uri: "https://cdn.pixabay.com/photo/2019/12/20/09/01/valentine-scrapbooking-4708011_960_720.jpg",
+        }}
+      >
         <Modal
           visible={showModal}
           onRequestClose={() => setShowModal(false)}
@@ -99,7 +105,7 @@ export default function App() {
             />
           )}
         />
-      </View>
+      </ImageBackground>
     </DissmissKeyboard>
   );
 }
