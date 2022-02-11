@@ -7,7 +7,8 @@ const AddProduct = ({ submitHandler, displayModal, cancelNewProduct }) => {
   const [product, setProduct] = useState("");
 
   const inputHandler = (val) => {
-    setProduct(val);
+    const regex = /[^a-z]/gi;
+    setProduct(val.replace(regex, ""));
   };
 
   const handleClick = () => {
