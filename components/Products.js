@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View, Pressable } from "react-native";
-import { backgroundColor } from "react-native/Libraries/Components/View/ReactNativeStyleAttributes";
+import Colors from "../constants/colors";
 
 const Products = ({ name, deleteProduct, idString }) => {
   return (
@@ -22,11 +22,11 @@ const Products = ({ name, deleteProduct, idString }) => {
 const styles = StyleSheet.create({
   items: {
     marginTop: 10,
+    backgroundColor: Colors.info,
+    borderRadius: 6,
   },
   element: {
-    backgroundColor: "mediumseagreen",
-    color: "#fff",
-    borderRadius: 6,
+    color: Colors.white,
     padding: 20,
     fontSize: 18,
     marginVertical: 5,
