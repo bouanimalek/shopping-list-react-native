@@ -16,6 +16,7 @@ import {
 import AddProduct from "./components/AddProduct";
 import ButtonComponent from "./components/ButtonComponent";
 import DissmissKeyboard from "./components/DissmissKeyboard";
+import Header from "./components/Header";
 import Products from "./components/Products";
 
 export default function App() {
@@ -49,69 +50,72 @@ export default function App() {
   return (
     <DissmissKeyboard>
       <ImageBackground
-        style={styles.container}
+        style={styles.bgImage}
         source={{
           uri: "https://cdn.pixabay.com/photo/2019/12/20/09/01/valentine-scrapbooking-4708011_960_720.jpg",
         }}
       >
-        <Modal
-          visible={showModal}
-          onRequestClose={() => setShowModal(false)}
-          animationType="slide"
-          hardwareAccelerated
-          transparent
-        >
-          <View style={styles.modalContainer}>
-            <View style={styles.modalContent}>
-              <View style={styles.modalHeader}>
-                <Text style={styles.modalHeaderText}>OUPS!</Text>
-              </View>
-              <View style={styles.modalBody}>
-                <Image
-                  source={{
-                    uri: "https://cdn.pixabay.com/photo/2012/04/26/18/36/negative-42774_960_720.png",
-                  }}
-                  style={styles.redCheck128}
-                />
-                <Text style={styles.modalBodyText}>
-                  Merci d'indiquer plus d'un seul caractère
-                </Text>
-              </View>
-              <View style={styles.modalFooter}>
-                <Pressable
-                  style={styles.pressableBtnModal}
-                  onPress={() => setShowModal(false)}
-                >
-                  <Text style={styles.modalBtn}>Compris!</Text>
-                </Pressable>
+        <Header />
+        <View style={styles.container}>
+          <Modal
+            visible={showModal}
+            onRequestClose={() => setShowModal(false)}
+            animationType="slide"
+            hardwareAccelerated
+            transparent
+          >
+            <View style={styles.modalContainer}>
+              <View style={styles.modalContent}>
+                <View style={styles.modalHeader}>
+                  <Text style={styles.modalHeaderText}>OUPS!</Text>
+                </View>
+                <View style={styles.modalBody}>
+                  <Image
+                    source={{
+                      uri: "https://cdn.pixabay.com/photo/2012/04/26/18/36/negative-42774_960_720.png",
+                    }}
+                    style={styles.redCheck128}
+                  />
+                  <Text style={styles.modalBodyText}>
+                    Merci d'indiquer plus d'un seul caractère
+                  </Text>
+                </View>
+                <View style={styles.modalFooter}>
+                  <Pressable
+                    style={styles.pressableBtnModal}
+                    onPress={() => setShowModal(false)}
+                  >
+                    <Text style={styles.modalBtn}>Compris!</Text>
+                  </Pressable>
+                </View>
               </View>
             </View>
-          </View>
-        </Modal>
+          </Modal>
 
-        <ButtonComponent
-          onPressHandler={() => setDisplayModal(true)}
-          style={styles.addProductBtn}
-        >
-          Nouveau produit
-        </ButtonComponent>
+          <ButtonComponent
+            onPressHandler={() => setDisplayModal(true)}
+            style={styles.addProductBtn}
+          >
+            Nouveau produit
+          </ButtonComponent>
 
-        <AddProduct
-          submitHandler={submitHandler}
-          displayModal={displayModal}
-          cancelNewProduct={cancelNewProduct}
-        />
+          <AddProduct
+            submitHandler={submitHandler}
+            displayModal={displayModal}
+            cancelNewProduct={cancelNewProduct}
+          />
 
-        <FlatList
-          data={myProducts}
-          renderItem={({ item }) => (
-            <Products
-              name={item.name}
-              idString={item.key}
-              deleteProduct={deleteProduct}
-            />
-          )}
-        />
+          <FlatList
+            data={myProducts}
+            renderItem={({ item }) => (
+              <Products
+                name={item.name}
+                idString={item.key}
+                deleteProduct={deleteProduct}
+              />
+            )}
+          />
+        </View>
       </ImageBackground>
     </DissmissKeyboard>
   );
@@ -121,7 +125,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 40,
-    paddingTop: 60,
   },
   modalContainer: {
     flex: 1,
@@ -185,5 +188,9 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderWidth: 3,
     borderColor: "white",
+    marginBottom: 20,
+  },
+  bgImage: {
+    flex: 1,
   },
 });
