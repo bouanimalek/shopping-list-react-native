@@ -23,6 +23,7 @@ const AddProduct = ({ submitHandler, displayModal, cancelNewProduct }) => {
           textPlaceholder="Nouveau produit"
           onChangeHandler={inputHandler}
           inputValue={product}
+          maxLength={10}
         />
         <View style={styles.btnContainer}>
           <ButtonComponent onPressHandler={handleClick} style={styles.btnBlue}>

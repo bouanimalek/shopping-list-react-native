@@ -5,6 +5,8 @@ import Colors from "../constants/colors";
 const Input = (props) => {
   return (
     <TextInput
+      //forward props
+      {...props}
       style={{ ...styles.input, ...props.style }}
       placeholder={props.textPlaceholder}
       onChangeText={props.onChangeHandler}
