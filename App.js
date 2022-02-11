@@ -19,11 +19,32 @@ import DissmissKeyboard from "./components/DissmissKeyboard";
 import Header from "./components/Header";
 import Products from "./components/Products";
 import Colors from "./constants/colors";
+import * as Font from "expo-font";
+import AppLoading from "expo-app-loading";
+
+const fetchFonts = () => {
+  return Font.loadAsync({
+    "roboto-bold": require("./assets/fonts/Roboto-Bold.ttf"),
+    "roboto-regular": require("./assets/fonts/Roboto-Regular.ttf"),
+    "greatVibes-regular": require("./assets/fonts/GreatVibes-Regular.otf"),
+  });
+};
 
 export default function App() {
   const [myProducts, setMyProducts] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [displayModal, setDisplayModal] = useState(false);
+  const [fontsLoaded, setfontsLoaded] = useState(false);
+
+  if (!fontsLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setfontsLoaded(true)}
+        onError={(error) => console.log(error)}
+      />
+    );
+  }
 
   const submitHandler = (product) => {
     setDisplayModal(false);

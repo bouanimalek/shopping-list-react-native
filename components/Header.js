@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
   logo: {
     color: Colors.white,
     fontSize: 30,
-    fontWeight: "bold",
     padding: 9,
+    fontFamily: "greatVibes-regular",
   },
 });
 
