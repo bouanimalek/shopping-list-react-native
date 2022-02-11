@@ -1,5 +1,6 @@
 import { StyleSheet, View, TextInput, Button, Modal } from "react-native";
 import React, { useState } from "react";
+import ButtonComponent from "./ButtonComponent";
 
 const AddProduct = ({ submitHandler, displayModal, cancelNewProduct }) => {
   const [product, setProduct] = useState("");
@@ -26,12 +27,16 @@ const AddProduct = ({ submitHandler, displayModal, cancelNewProduct }) => {
           secureTextEntry={false}
         />
         <View style={styles.btnContainer}>
-          <View style={styles.btnBlue}>
-            <Button title="Valider" onPress={handleClick} />
-          </View>
-          <View style={styles.btnTomato}>
-            <Button title="Annuler" onPress={cancelNewProduct} color="tomato" />
-          </View>
+          <ButtonComponent
+            onPressHandler={handleClick}
+            btnTitle="Valider"
+            style={styles.btnBlue}
+          />
+          <ButtonComponent
+            onPressHandler={cancelNewProduct}
+            btnTitle="Annuler"
+            style={styles.btnTomato}
+          />
         </View>
       </View>
     </Modal>
@@ -59,9 +64,13 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   btnBlue: {
-    width: "45%",
+    backgroundColor: "seagreen",
+    width: 150,
+    borderRadius: 6,
   },
   btnTomato: {
-    width: "45%",
+    backgroundColor: "tomato",
+    width: 150,
+    borderRadius: 6,
   },
 });
