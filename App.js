@@ -14,6 +14,7 @@ import {
   ImageBackground,
 } from "react-native";
 import AddProduct from "./components/AddProduct";
+import ButtonComponent from "./components/ButtonComponent";
 import DissmissKeyboard from "./components/DissmissKeyboard";
 import Products from "./components/Products";
 
@@ -88,7 +89,13 @@ export default function App() {
           </View>
         </Modal>
 
-        <Button title="Nouveau produit" onPress={() => setDisplayModal(true)} />
+        <ButtonComponent
+          onPressHandler={() => setDisplayModal(true)}
+          style={styles.addProductBtn}
+        >
+          Nouveau produit
+        </ButtonComponent>
+
         <AddProduct
           submitHandler={submitHandler}
           displayModal={displayModal}
@@ -171,5 +178,12 @@ const styles = StyleSheet.create({
   redCheck128: {
     width: 100,
     height: 100,
+  },
+  addProductBtn: {
+    backgroundColor: "darkred",
+    padding: 20,
+    borderRadius: 30,
+    borderWidth: 3,
+    borderColor: "white",
   },
 });

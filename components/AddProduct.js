@@ -27,16 +27,15 @@ const AddProduct = ({ submitHandler, displayModal, cancelNewProduct }) => {
           secureTextEntry={false}
         />
         <View style={styles.btnContainer}>
-          <ButtonComponent
-            onPressHandler={handleClick}
-            btnTitle="Valider"
-            style={styles.btnBlue}
-          />
+          <ButtonComponent onPressHandler={handleClick} style={styles.btnBlue}>
+            Valider
+          </ButtonComponent>
           <ButtonComponent
             onPressHandler={cancelNewProduct}
-            btnTitle="Annuler"
             style={styles.btnTomato}
-          />
+          >
+            Annuler
+          </ButtonComponent>
         </View>
       </View>
     </Modal>
