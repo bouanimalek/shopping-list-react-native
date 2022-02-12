@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Colors from "../constants/colors";
+import TitleText from "./TitleText";
 
 const Header = () => {
   return (
     <View style={styles.headerWrapper}>
-      <Text style={styles.logo}>My Shopping List</Text>
+      <TitleText style={styles.logo}>My Shopping List</TitleText>
     </View>
   );
 };
