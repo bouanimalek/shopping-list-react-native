@@ -5,4 +5,5 @@ export default {
   success: "seagreen",
   warning: "tomato",
   secondary: "lightgrey",
+  grey: "grey",
 };
