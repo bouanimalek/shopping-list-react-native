@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     color: Colors.white,
     fontSize: 30,
     padding: 9,
-    fontFamily: "greatVibes-regular",
+    fontFamily: "BangersRegular",
   },
 });
 
